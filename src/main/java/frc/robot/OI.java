@@ -41,7 +41,7 @@ public class OI
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
 
-  public static void uniqueToClubLaptop()
+  public static void notUniqueToClubLaptop()
   {
     return;
   }
