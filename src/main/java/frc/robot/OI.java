@@ -45,5 +45,5 @@ public class OI
   {
     return;
   }
-
+  int x;
 }
