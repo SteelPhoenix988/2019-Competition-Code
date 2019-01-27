@@ -40,11 +40,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     m_oi = new OI();
     RM = new RobotMap();
-    m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
-    // chooser.addOption("My Auto", new MyAutoCommand());
-    SmartDashboard.putData("Auto mode", m_chooser);
     CameraServer.getInstance().startAutomaticCapture();
-
   }
 
   /**
