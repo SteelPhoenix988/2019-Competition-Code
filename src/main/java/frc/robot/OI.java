@@ -7,6 +7,7 @@
 
 package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -24,7 +25,7 @@ public class OI
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
   // commands the same as any other Button.
-  public Joystick m_stick;
+  public static Joystick m_stick = new Joystick(0);  
 
   
   //// TRIGGERING COMMANDS WITH BUTTONS

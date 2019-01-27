@@ -25,6 +25,7 @@ import frc.robot.RobotMap;
 public class Robot extends TimedRobot {
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
+  public static RobotMap RM;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -36,6 +37,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_oi = new OI();
+    RM = new RobotMap();
     m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
@@ -123,8 +125,8 @@ public class Robot extends TimedRobot {
     
     
     
-    m_robotDrive.driveCartesian(m_stick.getX(), m_stick.getY(),
-    m_stick.getZ(), 0.0);
+    RobotMap.m_robotDrive.driveCartesian(OI.m_stick.getX(), OI.m_stick.getY(),
+    OI.m_stick.getZ(), 0.0);
 
 
 

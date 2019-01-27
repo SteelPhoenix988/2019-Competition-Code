@@ -7,7 +7,7 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
+
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 
@@ -34,21 +34,21 @@ public class RobotMap {
   
   
   
-  VictorSP frontLeft = new VictorSP(mFL);
-  VictorSP rearLeft = new VictorSP(mRL);
-  VictorSP frontRight = new VictorSP(mFR);
-  VictorSP rearRight = new VictorSP(mRR);
+  static VictorSP frontLeft = new VictorSP(mFL);
+  static VictorSP rearLeft = new VictorSP(mRL);
+  static VictorSP frontRight = new VictorSP(mFR);
+  static VictorSP rearRight = new VictorSP(mRR);
 
   // Invert the left side motors.
   // You may need to change or remove this to match your robot.
   
 
-  public MecanumDrive m_robotDrive = new MecanumDrive(frontLeft, rearLeft, frontRight, rearRight);
+  public static final MecanumDrive m_robotDrive = new MecanumDrive(frontLeft, rearLeft, frontRight, rearRight);
 
   
 
 
-  public Joystick m_stick = new Joystick(ControlPort);   
+   
   
   // If you are using multiple modules, make sure to define both the port
   // number and the module. For example you with a rangefinder:
