@@ -10,6 +10,10 @@
     ".classpath": true,
     ".project": true
   },
+<<<<<<< HEAD
   "wpilib.online": true,
   "svn.ignoreMissingSvnWarning": true
+=======
+  "wpilib.online": true
+>>>>>>> refs/remotes/origin/master
 }
