@@ -7,10 +7,6 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.VictorSP;
-import edu.wpi.first.wpilibj.drive.MecanumDrive;
-
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -27,36 +23,4 @@ public class RobotMap {
   // number and the module. For example you with a rangefinder:
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
-  
-
-  public static final int mFL = 2;
-  public static final int mRL = 3;
-  public static final int mFR = 1;
-  public static final int mRR = 0;
-
-  public static final int ControlPort = 0;
-
-  public MecanumDrive m_robotDrive;
-  public Joystick m_stick;
-  
-  
-  
-  
-  
-  
-  public void robotInit() {
-    VictorSP frontLeft = new VictorSP(mFL);
-    VictorSP rearLeft = new VictorSP(mRL);
-    VictorSP frontRight = new VictorSP(mFR);
-    VictorSP rearRight = new VictorSP(mRR);
-
-    // Invert the left side motors.
-    // You may need to change or remove this to match your robot.
-    frontLeft.setInverted(true);
-    rearLeft.setInverted(true);
-
-    m_robotDrive = new MecanumDrive(frontLeft, rearLeft, frontRight, rearRight);
-
-    m_stick = new Joystick(ControlPort);
-  }
 }
