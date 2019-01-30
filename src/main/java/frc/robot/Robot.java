@@ -11,7 +11,6 @@ import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.RobotMap;
 
@@ -26,7 +25,9 @@ public class Robot extends TimedRobot {
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
   public static RobotMap RM;
-  
+
+  Command m_autonomousCommand;
+
   /**
    * This function is run when the robot is first started up and should be used
    * for any initialization code.
