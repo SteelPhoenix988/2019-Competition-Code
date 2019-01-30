@@ -26,10 +26,7 @@ public class Robot extends TimedRobot {
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
   public static RobotMap RM;
-
-  Command m_autonomousCommand;
-  SendableChooser<Command> m_chooser = new SendableChooser<>();
-
+  
   /**
    * This function is run when the robot is first started up and should be used
    * for any initialization code.
