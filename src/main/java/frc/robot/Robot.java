@@ -25,7 +25,6 @@ import frc.robot.RobotMap;
 public class Robot extends TimedRobot {
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
-  public static RobotMap RM;
 
   Command m_autonomousCommand;
 
@@ -36,8 +35,8 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_oi = new OI();
-    RM = new RobotMap();
     CameraServer.getInstance().startAutomaticCapture();
+    RobotMap.m_robotDrive.setDeadband(0.2);
   }
 
   /**
@@ -108,7 +107,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-
+  
     RobotMap.m_robotDrive.driveCartesian
     (
       OI.joystick.getY(Hand.kLeft), 
