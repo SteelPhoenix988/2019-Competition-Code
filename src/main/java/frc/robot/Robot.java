@@ -9,6 +9,7 @@ package frc.robot;
 
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.ExampleSubsystem;
@@ -108,7 +109,12 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
 
-    RobotMap.m_robotDrive.driveCartesian(OI.m_stick.getX(), OI.m_stick.getY(), OI.m_stick.getZ(), 0.0);
+    RobotMap.m_robotDrive.driveCartesian
+    (
+      OI.joystick.getY(Hand.kLeft), 
+      OI.joystick.getX(Hand.kLeft), 
+      OI.joystick.getX(Hand.kRight)
+    );
 
   }
 
@@ -116,6 +122,8 @@ public class Robot extends TimedRobot {
    * This function is called periodically during test mode.
    */
   @Override
-  public void testPeriodic() {
+  public void testPeriodic() 
+  {
+
   }
 }

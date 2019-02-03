@@ -6,7 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -25,7 +25,7 @@ public class OI
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
   // commands the same as any other Button.
-  public static Joystick m_stick = new Joystick(0);  
+  public static XboxController joystick = new XboxController(RobotMap.controllerPort);
 
   
   //// TRIGGERING COMMANDS WITH BUTTONS

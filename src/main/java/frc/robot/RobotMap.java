@@ -22,22 +22,19 @@ public class RobotMap {
   // following variables to use with your drivetrain subsystem.
   // public static int leftMotor = 1;
   // public static int rightMotor = 2;
-  public static final int mFL = 2;
-  public static final int mRL = 3;
+  public static final int mFL = 0;
   public static final int mFR = 1;
-  public static final int mRR = 0;
+  public static final int mRL = 2;
+  public static final int mRR = 3;
 
   public static final int ControlPort = 0;
 
-  
-  
-  
-  
-  
-  static VictorSP frontLeft = new VictorSP(mFL);
-  static VictorSP rearLeft = new VictorSP(mRL);
-  static VictorSP frontRight = new VictorSP(mFR);
-  static VictorSP rearRight = new VictorSP(mRR);
+  public static VictorSP frontLeft = new VictorSP(mFL);
+  public static VictorSP rearLeft = new VictorSP(mRL);
+  public static VictorSP frontRight = new VictorSP(mFR);
+  public static VictorSP rearRight = new VictorSP(mRR);
+
+  public static final int controllerPort = 0;
 
   // Invert the left side motors.
   // You may need to change or remove this to match your robot.
