@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.ExampleSubsystem;
+import jdk.vm.ci.hotspot.HotSpotReferenceMap;
 import frc.robot.RobotMap;
 
 /**
@@ -106,35 +107,34 @@ public class Robot extends TimedRobot {
    * This function is called periodically during operator control.
    */
   @Override
-  public void teleopPeriodic() {
+  public void teleopPeriodic() 
+  {
     Scheduler.getInstance().run();
-  
-    RobotMap.m_robotDrive.driveCartesian
-    (
-      OI.joystick.getX(Hand.kRight),       //Moving the xbox-controller to the right produces the values 0 to 1.
-                                          //Therefore, a negative sign does not need to be applied.
-      -OI.joystick.getY(Hand.kLeft),      // Moving the xbox-controller joystick up produces 0 to -1 values. 
-                                          // Therefore, a negative sign is applied to map pressing up with values 0 to 1.
-     0
-    );
-
+    getAndSendDriverInputToDrive();
   }
-
+  private void getAndSendDriverInputToDrive()
+  {
+    double horizontalSpeed = OI.joystick.getX(Hand.kRight);
+    double verticalSpeed = -OI.joystick.getY(Hand.kLeft); //A negative sign is applied to make pressing up (on the joystick) correspond  with values 0 to 1 (not 0 to -1 originally)
+                                                          //This mapping allows for pressing up to move the drive train forward instead of backwards.
+    RobotMap.m_robotDrive.driveCartesian(horizontalSpeed, verticalSpeed, 0);//The orientation of the x and y axis are switched from the way 
+                                                                            // the driver sees them vs. how driveCartesian defines them in its arguments                                                     
+  }
   /**
    * This function is called periodically during test mode.
    */
   @Override
   public void testPeriodic() 
   {
-    //  double first = OI.joystick.getY(Hand.kRight);
-    //  printDouble("ySpeed: ", first);
-    //  double second = OI.joystick.getX(Hand.kRight);
-    //  printDouble("xSpeed:", second);
-    //double third = OI.joystick.getX(Hand.kRight);
-    //printDouble(third);
+      // double first = OI.joystick.getY(Hand.kRight);
+      // printStringAndDouble("ySpeed: ", first);
+      // double second = OI.joystick.getX(Hand.kRight);
+      // printStringAndDouble("xSpeed:", second);
+      // double third = OI.joystick.getX(Hand.kRight);
+      // printStringAndDouble("rotatiion", third);
   }
-  private void printDouble(String message, double x)
-  {
-    System.out.println(message + " " + x);
-  }
+  // private void printStringAndDouble(String message, double x)
+  // {
+  //   System.out.println(message + " " + x);
+  // }
 }
