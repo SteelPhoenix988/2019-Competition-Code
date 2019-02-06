@@ -111,11 +111,11 @@ public class Robot extends TimedRobot {
   
     RobotMap.m_robotDrive.driveCartesian
     (
-      OI.joystick.getX(Hand.kLeft),       //Moving the xbox-controller to the right produces the values 0 to 1.
+      OI.joystick.getX(Hand.kRight),       //Moving the xbox-controller to the right produces the values 0 to 1.
                                           //Therefore, a negative sign does not need to be applied.
       -OI.joystick.getY(Hand.kLeft),      // Moving the xbox-controller joystick up produces 0 to -1 values. 
                                           // Therefore, a negative sign is applied to map pressing up with values 0 to 1.
-      OI.joystick.getX(Hand.kRight)
+     0
     );
 
   }
@@ -126,8 +126,8 @@ public class Robot extends TimedRobot {
   @Override
   public void testPeriodic() 
   {
-     double first = OI.joystick.getY(Hand.kRight);
-     printDouble("ySpeed: ", first);
+    //  double first = OI.joystick.getY(Hand.kRight);
+    //  printDouble("ySpeed: ", first);
     //  double second = OI.joystick.getX(Hand.kRight);
     //  printDouble("xSpeed:", second);
     //double third = OI.joystick.getX(Hand.kRight);
