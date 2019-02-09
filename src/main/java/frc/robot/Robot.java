@@ -12,7 +12,8 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.DriveTrain;
+
 import frc.robot.RobotMap;
 
 /**
@@ -22,10 +23,11 @@ import frc.robot.RobotMap;
  * creating this project, you must also update the build.gradle file in the
  * project.
  */
-public class Robot extends TimedRobot {
-  public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
-  public static OI m_oi;
-
+public class Robot extends TimedRobot 
+{
+  
+  public static OI OI;
+  public static DriveTrain driveTrain;
   Command m_autonomousCommand;
 
   /**
@@ -34,9 +36,9 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    m_oi = new OI();
+    OI = new OI();
+    driveTrain = new DriveTrain();
     CameraServer.getInstance().startAutomaticCapture();
-    RobotMap.m_robotDrive.setDeadband(0.15);
   }
 
   /**
@@ -109,15 +111,6 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() 
   {
     Scheduler.getInstance().run();
-    getAndSendDriverInputToDrive();
-  }
-  private void getAndSendDriverInputToDrive()
-  {
-    double horizontalSpeed = OI.joystick.getX(Hand.kRight);
-    double verticalSpeed = -OI.joystick.getY(Hand.kLeft); //A negative sign is applied to make pressing up (on the joystick) correspond  with values 0 to 1 (not 0 to -1 originally)
-    double rotationSpeed = 0;                                               //This mapping allows for pressing up to move the drive train forward instead of backwards.
-    RobotMap.m_robotDrive.driveCartesian(horizontalSpeed, verticalSpeed, rotationSpeed);//The orientation of the x and y axis are switched from the way 
-                                                                                        // the driver sees them vs. how driveCartesian defines them in its arguments                                                     
   }
   /**
    * This function is called periodically during test mode..j
