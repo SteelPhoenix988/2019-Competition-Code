@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.DriveTrain;
 import jdk.vm.ci.hotspot.HotSpotReferenceMap;
 import frc.robot.RobotMap;
 
@@ -37,7 +38,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     m_oi = new OI();
     CameraServer.getInstance().startAutomaticCapture();
-    RobotMap.m_robotDrive.setDeadband(0.2);
+    DriveTrain.m_robotDrive.setDeadband(0.2);
   }
 
   /**
@@ -117,7 +118,7 @@ public class Robot extends TimedRobot {
     double horizontalSpeed = OI.joystick.getX(Hand.kRight);
     double verticalSpeed = -OI.joystick.getY(Hand.kLeft); //A negative sign is applied to make pressing up (on the joystick) correspond  with values 0 to 1 (not 0 to -1 originally)
                                                           //This mapping allows for pressing up to move the drive train forward instead of backwards.
-    RobotMap.m_robotDrive.driveCartesian(horizontalSpeed, verticalSpeed, 0);//The orientation of the x and y axis are switched from the way 
+    DriveTrain.ManualDrive(horizontalSpeed, verticalSpeed);//The orientation of the x and y axis are switched from the way 
                                                                             // the driver sees them vs. how driveCartesian defines them in its arguments                                                     
   }
   /**

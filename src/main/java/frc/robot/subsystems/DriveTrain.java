@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.VictorSP;
 
 
 
-public class DriveTrain {
+public class DriveTrain extends Subsystem {
 
     public static final int mFL = 0;
     public static final int mFR = 1;
@@ -27,13 +27,17 @@ public class DriveTrain {
 
 
    
-    public void drive() {
+    public void ManualDrive(double Horizontal, double Verticle) {
       // Set the default command for a subsystem here.
       // setDefaultCommand(new MySpecialCommand());
+      m_robotDrive.driveCartesian(Horizontal, Verticle, 0);
         
 
 
+    }
 
+    @Override
+    protected void initDefaultCommand() {
 
     }
 
