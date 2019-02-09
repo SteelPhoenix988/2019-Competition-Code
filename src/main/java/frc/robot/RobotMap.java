@@ -8,8 +8,7 @@
 package frc.robot;
 
 
-import edu.wpi.first.wpilibj.VictorSP;
-import edu.wpi.first.wpilibj.drive.MecanumDrive;
+
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -22,17 +21,11 @@ public class RobotMap {
   // following variables to use with your drivetrain subsystem.
   // public static int leftMotor = 1;
   // public static int rightMotor = 2;
-  public static final int mFL = 0;
-  public static final int mFR = 1;
-  public static final int mRL = 2;
-  public static final int mRR = 3;
+  
 
   public static final int ControlPort = 0;
 
-  public static VictorSP frontLeft = new VictorSP(mFL);
-  public static VictorSP rearLeft = new VictorSP(mRL);
-  public static VictorSP frontRight = new VictorSP(mFR);
-  public static VictorSP rearRight = new VictorSP(mRR);
+  
 
   public static final int controllerPort = 0;
 
@@ -40,7 +33,7 @@ public class RobotMap {
   // You may need to change or remove this to match your robot.
   
 
-  public static final MecanumDrive m_robotDrive = new MecanumDrive(frontLeft, rearLeft, frontRight, rearRight);
+ 
 
   
 
