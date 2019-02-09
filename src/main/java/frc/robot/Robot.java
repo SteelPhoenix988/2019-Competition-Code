@@ -27,7 +27,7 @@ import frc.robot.RobotMap;
 public class Robot extends TimedRobot {
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
-
+  public static DriveTrain driveTrain = new DriveTrain();
   Command m_autonomousCommand;
 
   /**
@@ -113,8 +113,10 @@ public class Robot extends TimedRobot {
     Scheduler.getInstance().run();
     getAndSendDriverInputToDrive();
   }
+  
   private void getAndSendDriverInputToDrive()
   {
+    
     double horizontalSpeed = OI.joystick.getX(Hand.kRight);
     double verticalSpeed = -OI.joystick.getY(Hand.kLeft); //A negative sign is applied to make pressing up (on the joystick) correspond  with values 0 to 1 (not 0 to -1 originally)
                                                           //This mapping allows for pressing up to move the drive train forward instead of backwards.
