@@ -23,25 +23,10 @@ public class RobotMap {
   // public static int rightMotor = 2;
   
 
-  public static final int ControlPort = 0;
-
-  
+  public static final int mecanumMotorFLPort = 0;
+  public static final int mecanumMotorFRPort = 1;
+  public static final int mecanumMotorRLPort = 2;
+  public static final int mecanumMotorRRPort = 3;
 
   public static final int controllerPort = 0;
-
-  // Invert the left side motors.
-  // You may need to change or remove this to match your robot.
-  
-
- 
-
-  
-
-
-   
-  
-  // If you are using multiple modules, make sure to define both the port
-  // number and the module. For example you with a rangefinder:
-  // public static int rangefinderPort = 1;
-  // public static int rangefinderModule = 1;
 }

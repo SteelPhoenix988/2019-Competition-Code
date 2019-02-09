@@ -2,42 +2,38 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
+import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.VictorSP;
 
 
 
 
 
-public class DriveTrain extends Subsystem {
+public class DriveTrain extends Subsystem 
+{
+    private final VictorSP frontLeft = new VictorSP(RobotMap.mecanumMotorFLPort);
+    private final VictorSP rearLeft = new VictorSP(RobotMap.mecanumMotorRLPort);
+    private final VictorSP frontRight = new VictorSP(RobotMap.mecanumMotorFRPort);
+    private final VictorSP rearRight = new VictorSP(RobotMap.mecanumMotorRRPort);
 
-    public static final int mFL = 0;
-    public static final int mFR = 1;
-    public static final int mRL = 2;
-    public static final int mRR = 3;
+    public final MecanumDrive robotDrive = new MecanumDrive(frontLeft, rearLeft, frontRight, rearRight);
 
-    public static VictorSP frontLeft = new VictorSP(mFL);
-    public static VictorSP rearLeft = new VictorSP(mRL);
-    public static VictorSP frontRight = new VictorSP(mFR);
-    public static VictorSP rearRight = new VictorSP(mRR);
+    public DriveTrain()
+    {
+      robotDrive.setDeadband(0.145);
+    }
 
-
-
-    public static final MecanumDrive m_robotDrive = new MecanumDrive(frontLeft, rearLeft, frontRight, rearRight);
-
-
-
-   
-    public void ManualDrive(double Horizontal, double Verticle) {
+    public void manualDrive(double horizontalSpeed, double verticalSpeed, double rotationSpeed) 
+    {
       // Set the default command for a subsystem here.
       // setDefaultCommand(new MySpecialCommand());
-      m_robotDrive.driveCartesian(Horizontal, Verticle, 0);
-        
-
-
+      robotDrive.driveCartesian(horizontalSpeed, verticalSpeed, rotationSpeed);
+      
     }
 
     @Override
-    protected void initDefaultCommand() {
+    protected void initDefaultCommand() 
+    {
 
     }
 
