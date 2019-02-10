@@ -3,6 +3,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import frc.robot.RobotMap;
+import frc.robot.commands.TeleopDriveCommand;
 import edu.wpi.first.wpilibj.VictorSP;
 
 
@@ -25,16 +26,15 @@ public class DriveTrain extends Subsystem
 
     public void manualDrive(double horizontalSpeed, double verticalSpeed, double rotationSpeed) 
     {
-      // Set the default command for a subsystem here.
-      // setDefaultCommand(new MySpecialCommand());
       robotDrive.driveCartesian(horizontalSpeed, verticalSpeed, rotationSpeed);
-      
     }
 
+    // Set the default command for a subsystem here.
+    // setDefaultCommand(new MySpecialCommand());
     @Override
     protected void initDefaultCommand() 
     {
-
+        setDefaultCommand(new TeleopDriveCommand());
     }
 
 
