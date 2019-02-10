@@ -9,12 +9,9 @@ package frc.robot;
 
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.DriveTrain;
-
-import frc.robot.RobotMap;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -124,9 +121,5 @@ public class Robot extends TimedRobot
       //  printStringAndDouble("xSpeed:", second);
       // // double third = OI.joystick.getX(Hand.kRight);
       // // printStringAndDouble("rotatiion", third);
-  }
-  private void printStringAndDouble(String message, double x)
-  {
-    System.out.println(message + " " + x);
   }
 }

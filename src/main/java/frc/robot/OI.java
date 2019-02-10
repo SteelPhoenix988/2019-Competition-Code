@@ -25,7 +25,7 @@ public class OI
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
   // commands the same as any other Button.
-  public static XboxController joystick = new XboxController(RobotMap.controllerPort);
+  public final XboxController joystick = new XboxController(RobotMap.controllerPort);
 
   
   //// TRIGGERING COMMANDS WITH BUTTONS
