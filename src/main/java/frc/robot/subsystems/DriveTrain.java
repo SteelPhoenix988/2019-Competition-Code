@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import frc.robot.RobotMap;
 import frc.robot.commands.TeleopDriveCommand;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.VictorSP;
 
 
@@ -28,7 +29,21 @@ public class DriveTrain extends Subsystem
     {
       robotDrive.driveCartesian(horizontalSpeed, verticalSpeed, rotationSpeed);
     }
+  
+    public void timedDrive(int Direction, double seconds, double power){
 
+      if (Direction == 1){
+        robotDrive.driveCartesian(0, power, 0);
+        Timer.delay(seconds);
+        robotDrive.driveCartesian(0, 0, 0);
+       
+      }
+
+      
+
+
+
+    }
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
     @Override

@@ -115,11 +115,10 @@ public class Robot extends TimedRobot
   @Override
   public void testPeriodic() 
   {
-      //  double first = OI.joystick.getY(Hand.kLeft);
-      //  printStringAndDouble("ySpeed: ", first);
-      // // double second = OI.joystick.getX(Hand.kLeft);
-      //  printStringAndDouble("xSpeed:", second);
-      // // double third = OI.joystick.getX(Hand.kRight);
-      // // printStringAndDouble("rotatiion", third);
+
+      if (Robot.OI.joystick.getAButtonPressed()){
+        Robot.driveTrain.timedDrive(1, .25, .25);
+      }
+      
   }
 }
