@@ -21,17 +21,37 @@ public class ElevatorCommand extends Command {
 
   private double Motion;
   private boolean Stop;
-  
+  //private boolean IntakeStart;
+  //private boolean IntakeStop;
   // Called repeatedly when this Command is scheduled to run
   @Override
-  protected void execute() 
-  {
+  protected void execute() {
     Stop = (Robot.OI.ElevatorStick.getBButton());
-    Motion = (Robot.OI.ElevatorStick.getX(Hand.kLeft));
-    Robot.elevator.MoveElevator(Motion, Stop);
-   
+    Motion = applySin(Robot.OI.ElevatorStick.getX(Hand.kLeft));
+    //IntakeStart = Robot.OI.ElevatorStick.getAButton();
+     //IntakeStop = Robot.OI.ElevatorStick.getxButton();
+    //Robot.elevator.MoveElevator(Motion, Stop);
+    //Robot.elevator.IntakeIn(IntakeStart);
+    //Robot.elevator.IntakeStop(IntakeStop);
+
   }
   
+  
+  //Might be a little messy- Tried importing it from Teleop, but it spit back a weird error about applySin requiring a boolean
+  //Bug with the method?
+  private double applySin(double initial){
+
+    if (initial != 0){
+    double sign = Math.abs(initial)/initial;
+    double finish = Math.sin((initial-.5)*Math.PI);
+    finish = ((finish + 1)/2)*sign;
+    return finish;
+    }
+    else
+    {
+      return 0;
+    }
+  }
   
   
   

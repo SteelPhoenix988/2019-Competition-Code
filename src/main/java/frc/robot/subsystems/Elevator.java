@@ -16,10 +16,17 @@ import edu.wpi.first.wpilibj.PWMVictorSPX;
 
 public class Elevator extends Subsystem {
     public final PWMVictorSPX Elevator = new PWMVictorSPX(RobotMap.elevatorMotorPort);
-    
+
+    //This is just for if we have a motor intake on the elevator
 
     
+    //public final PWMVictorSPX LeftIntake = new PWMVictorSPX(RobotMap.evevatorIntakePortLeft);
+    //public final PWMVictorSPX RightIntake = new PWMVictorSPX(RobotMap.evevatorIntakePortRight);
 
+
+
+
+    
     public void MoveElevator(double Motion, boolean stop){
         double absMotion = Math.abs(Motion);
         
@@ -35,8 +42,22 @@ public class Elevator extends Subsystem {
         
         Elevator.set(Motion);
     }
+    /*
+    //Look into the OI and call it as whileHeld
+    public void IntakeIn(boolean StartIntake){
+            if (StartIntake == true){
+            LeftIntake.set(1);
+            RightIntake.set(-1);
+            }
+        }
+    public void IntakeStop(boolean StopIntake){
+        if (StopIntake == true){
+        LeftIntake.set(0);
+        RightIntake.set(0);
+        }
+    }
 
-    
+    */
       
 
 
