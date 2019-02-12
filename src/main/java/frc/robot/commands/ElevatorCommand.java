@@ -1,5 +1,6 @@
 //Uses the method(s?) from Elevator.java to operate the elevator
 //Not sure how to schedule to run, but will function properly once it is scheduled
+//Currently using the Joystick's X axis to give motion and thereby move the Elevator
 //-Alex
 package frc.robot.commands;
 

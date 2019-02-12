@@ -1,4 +1,8 @@
 //Contains the methods for moving the Elevator which is called in ElevatorCommand
+//The most important and only real method is MoveElevator
+//It will move with the input given as Motion I'm currently using our Joystick's Y Axis for movement
+//It includes an oldschool dead band and B brake system
+//This could be applied to any one motor device
 //-Alex
 package frc.robot.subsystems;
 
