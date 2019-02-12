@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.Elevator;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,6 +26,7 @@ public class Robot extends TimedRobot
   
   public static OI OI;
   public static DriveTrain driveTrain;
+  public static Elevator elevator;
   Command m_autonomousCommand;
 
   /**
@@ -35,6 +37,7 @@ public class Robot extends TimedRobot
   public void robotInit() {
     OI = new OI();
     driveTrain = new DriveTrain();
+    elevator = new Elevator ();
     CameraServer.getInstance().startAutomaticCapture();
   }
 

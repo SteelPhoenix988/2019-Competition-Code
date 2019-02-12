@@ -28,5 +28,11 @@ public class RobotMap {
   public static final int mecanumMotorRLPort = 2;
   public static final int mecanumMotorRRPort = 3;
 
+  //Elevator!!!!
+  public static final int elevatorMotorPort = 4;
+
+
+
   public static final int controllerPort = 0;
+  public static final int ElevatorControllerPort = 1;
 }
