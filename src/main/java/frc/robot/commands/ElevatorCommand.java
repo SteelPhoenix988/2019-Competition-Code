@@ -29,8 +29,14 @@ public class ElevatorCommand extends Command {
     Stop = (Robot.OI.ElevatorStick.getBButton());
     Motion = applySin(Robot.OI.ElevatorStick.getX(Hand.kLeft));
     //IntakeStart = Robot.OI.ElevatorStick.getAButton();
-     //IntakeStop = Robot.OI.ElevatorStick.getxButton();
-    //Robot.elevator.MoveElevator(Motion, Stop);
+    //IntakeStop = Robot.OI.ElevatorStick.getxButton();
+    
+    
+    
+    Robot.elevator.MoveElevator(Motion, Stop);
+    
+    
+    
     //Robot.elevator.IntakeIn(IntakeStart);
     //Robot.elevator.IntakeStop(IntakeStop);
 
