@@ -1,3 +1,6 @@
+//Uses the method(s?) from Elevator.java to operate the elevator
+//Not sure how to schedule to run, but will function properly once it is scheduled
+//-Alex
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
@@ -16,15 +19,15 @@ public class ElevatorCommand extends Command {
   }
 
   private double Motion;
-  
+  private boolean Stop;
   
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() 
   {
-    
+    Stop = (Robot.OI.ElevatorStick.getBButton());
     Motion = (Robot.OI.ElevatorStick.getX(Hand.kLeft));
-    Robot.elevator.MoveElevator(Motion);
+    Robot.elevator.MoveElevator(Motion, Stop);
    
   }
   
