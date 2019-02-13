@@ -9,7 +9,7 @@ public class Utility
         double sign = Math.abs(initial)/initial;
         double transformation = Math.sin((initial-.5)*Math.PI);
         transformation = ((transformation + 1)/2)*sign;
-        return transfosrmation;
+        return transformation;
         }
         else
         {
