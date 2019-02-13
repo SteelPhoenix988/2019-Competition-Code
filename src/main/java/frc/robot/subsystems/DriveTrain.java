@@ -7,10 +7,6 @@ import frc.robot.commands.TeleopDrive;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.VictorSP;
 
-
-
-
-
 public class DriveTrain extends Subsystem 
 {
     private final VictorSP frontLeft = new VictorSP(RobotMap.mecanumMotorFLPort);
@@ -42,14 +38,14 @@ public class DriveTrain extends Subsystem
        //Timer.delay(1);
        //robotDrive.driveCartesian(0, 0, 0);
       }
-
-      
-
-
-
     }
+    public void stop()
+    {
+      robotDrive.stopMotor();
+    }
+
     // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+    // Without initDefaultCommand, the Scheduler in Robot.java will not be able to process inputs properly.
     @Override
     protected void initDefaultCommand() 
     {

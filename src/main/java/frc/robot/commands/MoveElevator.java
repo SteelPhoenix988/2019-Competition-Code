@@ -30,8 +30,8 @@ public class MoveElevator extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    stop = (Robot.OI.ElevatorStick.getBButton());
-    motion = Utility.applySinTransformation(Robot.OI.ElevatorStick.getX(Hand.kLeft));
+    stop = (Robot.OI.elevatorStick.getBButton());
+    motion = Utility.applySinTransformation(Robot.OI.elevatorStick.getX(Hand.kLeft));
     //IntakeStart = Robot.OI.ElevatorStick.getAButton();
     //IntakeStop = Robot.OI.ElevatorStick.getxButton();
     

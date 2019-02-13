@@ -34,5 +34,5 @@ public class RobotMap {
 
 
   public static final int controllerPort = 0;
-  public static final int ElevatorControllerPort = 1;
+  public static final int elevatorControllerPort = 1;
 }

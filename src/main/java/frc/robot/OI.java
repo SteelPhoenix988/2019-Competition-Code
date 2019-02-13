@@ -36,7 +36,7 @@ public class OI
   
   //Joystick for the Elevator Controller
   
-  public final XboxController ElevatorStick = new XboxController (RobotMap.ElevatorControllerPort);
+  public final XboxController elevatorStick = new XboxController (RobotMap.elevatorControllerPort);
   //// TRIGGERING COMMANDS WITH BUTTONS
   // Once you have a button, it's trivial to bind it to a button in one of
   // three ways:
@@ -52,10 +52,6 @@ public class OI
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());s
-
-
-  
-
 
 }
 

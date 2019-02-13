@@ -29,9 +29,15 @@ public class TeleopDrive extends Command {
   private double horizontalSpeed;
   private double verticalSpeed;
   private double rotation;
+  
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() 
+  {
+    processInputs();
+    Robot.driveTrain.manualDrive(horizontalSpeed, verticalSpeed, rotation);
+  }
+  private void processInputs()
   {
     horizontalSpeed = Utility.applySinTransformation(Robot.OI.joystick.getX(Hand.kLeft));
     verticalSpeed = Utility.applySinTransformation(-Robot.OI.joystick.getY(Hand.kLeft));
@@ -40,23 +46,16 @@ public class TeleopDrive extends Command {
     {
       rotation = 0;
     }
-    
-    
-    //Brake Check acts as an emergency stop
-    //Must stay before here
-    brakeCheck();
-    Robot.driveTrain.manualDrive(horizontalSpeed, verticalSpeed, rotation);
+    ApplyBrakeIfBPressed();
   }
   private boolean isUnderRotationThreshold(double rotation)
   {
     return Math.abs(rotation) < 0.1;
   }
-  public void brakeCheck (){
+  public void ApplyBrakeIfBPressed (){
     if (Robot.OI.joystick.getBButton())
     {
-     verticalSpeed = -verticalSpeed;
-     horizontalSpeed = 0;
-     //Possible rotation brake
+      Robot.driveTrain.stop();
    }
   }
   
