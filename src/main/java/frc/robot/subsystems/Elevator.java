@@ -8,9 +8,8 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-import frc.robot.commands.TeleopDriveCommand;
+import frc.robot.commands.MoveElevator;
 import edu.wpi.first.wpilibj.PWMVictorSPX;
-import frc.robot.Utility;
 
 
 
@@ -63,6 +62,6 @@ public class Elevator extends Subsystem {
     @Override
     protected void initDefaultCommand() 
     {
-        setDefaultCommand(new ElevatorCommand());
+        setDefaultCommand(new MoveElevator());
     }
 }

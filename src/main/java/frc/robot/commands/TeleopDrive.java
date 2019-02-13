@@ -15,8 +15,8 @@ import frc.robot.Utility;
 /**
  * An example command.  You can replace me with your own command.
  */
-public class TeleopDriveCommand extends Command {
-  public TeleopDriveCommand() {
+public class TeleopDrive extends Command {
+  public TeleopDrive() {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.driveTrain);
   }

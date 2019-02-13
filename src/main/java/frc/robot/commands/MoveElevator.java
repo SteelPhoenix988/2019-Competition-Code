@@ -12,10 +12,12 @@ import frc.robot.Utility;
 /**
  * An example command.  You can replace me with your own command.
  */
-public class ElevatorCommand extends Command {
-  
-
-
+public class MoveElevator extends Command {
+ 
+  public MoveElevator() {
+    // Use requires() here to declare subsystem dependencies
+    requires(Robot.elevator);
+  }
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
