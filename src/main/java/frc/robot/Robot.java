@@ -37,7 +37,7 @@ public class Robot extends TimedRobot
   public void robotInit() {
     OI = new OI();
     driveTrain = new DriveTrain();
-    elevator = new Elevator ();
+    elevator = new Elevator();
     CameraServer.getInstance().startAutomaticCapture();
   }
 

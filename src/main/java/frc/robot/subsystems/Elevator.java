@@ -1,5 +1,5 @@
-//Contains the methods for moving the Elevator which is called in ElevatorCommand
-//The most important and only real method is MoveElevator
+//Contains the methods for moving the elevator which is called in elevatorCommand
+//The most important and only real method is Moveelevator
 //It will move with the input given as Motion I'm currently using our Joystick's Y Axis for movement
 //It includes an oldschool dead band and B brake system
 //This could be applied to any one motor device
@@ -10,12 +10,12 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.TeleopDriveCommand;
 import edu.wpi.first.wpilibj.PWMVictorSPX;
-
+import frc.robot.Utility;
 
 
 
 public class Elevator extends Subsystem {
-    public final PWMVictorSPX Elevator = new PWMVictorSPX(RobotMap.elevatorMotorPort);
+    public final PWMVictorSPX elevator = new PWMVictorSPX(RobotMap.elevatorMotorPort);
 
     //This is just for if we have a motor intake on the elevator
 
@@ -23,11 +23,7 @@ public class Elevator extends Subsystem {
     //public final PWMVictorSPX LeftIntake = new PWMVictorSPX(RobotMap.evevatorIntakePortLeft);
     //public final PWMVictorSPX RightIntake = new PWMVictorSPX(RobotMap.evevatorIntakePortRight);
 
-
-
-
-    
-    public void MoveElevator(double Motion, boolean stop){
+    public void moveElevator(double Motion, boolean stop){
         double absMotion = Math.abs(Motion);
         
         
@@ -40,7 +36,7 @@ public class Elevator extends Subsystem {
             Motion = 0;
         }
         
-        Elevator.set(Motion);
+        elevator.set(Motion);
     }
     /*
     //Look into the OI and call it as whileHeld
@@ -67,6 +63,6 @@ public class Elevator extends Subsystem {
     @Override
     protected void initDefaultCommand() 
     {
-        setDefaultCommand(new TeleopDriveCommand());
+        setDefaultCommand(new ElevatorCommand());
     }
 }

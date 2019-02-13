@@ -10,6 +10,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.Utility;
 
 /**
  * An example command.  You can replace me with your own command.
@@ -32,9 +33,9 @@ public class TeleopDriveCommand extends Command {
   @Override
   protected void execute() 
   {
-    horizontalSpeed = applySin(Robot.OI.joystick.getX(Hand.kLeft));
-    verticalSpeed = applySin(-Robot.OI.joystick.getY(Hand.kLeft));
-    rotation = applySin(Robot.OI.joystick.getX(Hand.kRight));
+    horizontalSpeed = Utility.applySinTransformation(Robot.OI.joystick.getX(Hand.kLeft));
+    verticalSpeed = Utility.applySinTransformation(-Robot.OI.joystick.getY(Hand.kLeft));
+    rotation = Utility.applySinTransformation(Robot.OI.joystick.getX(Hand.kRight));
     if (isUnderRotationThreshold(rotation)) 
     {
       rotation = 0;
@@ -50,19 +51,6 @@ public class TeleopDriveCommand extends Command {
   {
     return Math.abs(rotation) < 0.1;
   }
-  private double applySin(double initial){
-
-    if (initial != 0){
-    double sign = Math.abs(initial)/initial;
-    double finish = Math.sin((initial-.5)*Math.PI);
-    finish = ((finish + 1)/2)*sign;
-    return finish;
-    }
-    else
-    {
-      return 0;
-    }
-  }
   public void brakeCheck (){
     if (Robot.OI.joystick.getBButton())
     {
@@ -71,10 +59,6 @@ public class TeleopDriveCommand extends Command {
      //Possible rotation brake
    }
   }
-  
-  
-  
-  
   
   // Make this return true when this Command no longer needs to run execute()
   @Override
