@@ -50,7 +50,8 @@ public class TeleopDrive extends Command {
   }
   private boolean isUnderRotationThreshold(double rotation)
   {
-    return Math.abs(rotation) < 0.1;
+    return Math.abs(rotation) < 0.075;
+
   }
   public void ApplyBrakeIfBPressed (){
     if (Robot.OI.joystick.getBButton())

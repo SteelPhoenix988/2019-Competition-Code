@@ -18,7 +18,7 @@ public class DriveTrain extends Subsystem
 
     public DriveTrain()
     {
-      robotDrive.setDeadband(0.145);
+      robotDrive.setDeadband(0.075);
     }
 
     public void manualDrive(double horizontalSpeed, double verticalSpeed, double rotationSpeed) 
@@ -40,11 +40,7 @@ public class DriveTrain extends Subsystem
        //robotDrive.driveCartesian(0, 0, 0);
       }
     }
-    public void stop()
-    {
-      robotDrive.stopMotor();
-    }
-
+    
     // Set the default command for a subsystem here.
     // Without initDefaultCommand, the Scheduler in Robot.java will not be able to process inputs properly.
     @Override
