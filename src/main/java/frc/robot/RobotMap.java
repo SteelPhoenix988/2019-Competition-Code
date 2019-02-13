@@ -22,17 +22,34 @@ public class RobotMap {
   // public static int leftMotor = 1;
   // public static int rightMotor = 2;
   
+  
+  
+  /*
+  With the following configuration of port numbers,
+  the FRONT will be 
+  THE SIDE OPPOSITE TO THE BATTERY
 
   public static final int mecanumMotorFLPort = 0;
   public static final int mecanumMotorFRPort = 1;
   public static final int mecanumMotorRLPort = 2;
   public static final int mecanumMotorRRPort = 3;
+  */
 
-  //Elevator!!!!
+  /*  
+  With the following configuration of port numbers,
+  the FRONT will be
+  THE SIDE WITH THE BATTERY
+   */
+  public static final int mecanumMotorFLPort = 3;
+  public static final int mecanumMotorFRPort = 2;
+  public static final int mecanumMotorRLPort = 1;
+  public static final int mecanumMotorRRPort = 0;
+
+ 
   public static final int elevatorMotorPort = 4;
 
 
 
-  public static final int controllerPort = 0;
+  public static final int driveControllerPort = 0;
   public static final int elevatorControllerPort = 1;
 }

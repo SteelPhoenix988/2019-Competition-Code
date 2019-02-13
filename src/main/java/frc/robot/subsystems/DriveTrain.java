@@ -25,6 +25,7 @@ public class DriveTrain extends Subsystem
     {
       robotDrive.driveCartesian(horizontalSpeed, verticalSpeed, rotationSpeed);
     }
+    
     //Lol be careful when using this. The 0 power doesn't break it as the motors will just let the axle spin
     //Don't get rekt
     public void timedDrive(int Direction, double seconds, double power){

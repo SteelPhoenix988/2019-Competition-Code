@@ -55,7 +55,8 @@ public class TeleopDrive extends Command {
   public void ApplyBrakeIfBPressed (){
     if (Robot.OI.joystick.getBButton())
     {
-      Robot.driveTrain.stop();
+      horizontalSpeed = 0;
+      verticalSpeed = 0;
    }
   }
   

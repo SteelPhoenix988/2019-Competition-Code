@@ -31,7 +31,7 @@ public class OI
   //public final Joystick joystick = new Joystick (RobotMap.controllerPort);
   
   
-  public final XboxController joystick = new XboxController(RobotMap.controllerPort);
+  public final XboxController joystick = new XboxController(RobotMap.driveControllerPort);
   
   
   //Joystick for the Elevator Controller
