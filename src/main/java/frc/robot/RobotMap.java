@@ -24,9 +24,8 @@ public class RobotMap {
   // public static int rightMotor = 2;
   
   //motorControllerPorts are set in DriveTrain.java
-  
-  public static final int elevatorMotorPort = 4;
 
+  public static final int elevatorMotorPort = 4;
 
   public static final int driveGameControllerPort = 0;
   public static final int elevatorGameControllerPort = 1;
