@@ -31,12 +31,12 @@ public class OI
   //public final Joystick joystick = new Joystick (RobotMap.controllerPort);
   
   
-  public final XboxController joystick = new XboxController(RobotMap.driveControllerPort);
+  public final XboxController joystick = new XboxController(RobotMap.driveGameControllerPort);
   
   
   //Joystick for the Elevator Controller
   
-  public final XboxController elevatorStick = new XboxController (RobotMap.elevatorControllerPort);
+  public final XboxController elevatorStick = new XboxController (RobotMap.elevatorGameControllerPort);
   //// TRIGGERING COMMANDS WITH BUTTONS
   // Once you have a button, it's trivial to bind it to a button in one of
   // three ways:

@@ -9,17 +9,51 @@ import edu.wpi.first.wpilibj.VictorSP;
 
 public class DriveTrain extends Subsystem 
 {
-    private final VictorSP frontLeft = new VictorSP(RobotMap.mecanumMotorFLPort);
-    private final VictorSP rearLeft = new VictorSP(RobotMap.mecanumMotorRLPort);
-    private final VictorSP frontRight = new VictorSP(RobotMap.mecanumMotorFRPort);
-    private final VictorSP rearRight = new VictorSP(RobotMap.mecanumMotorRRPort);
+    private int mecanumMotorFLPort;
+    private int mecanumMotorFRPort;
+    private int mecanumMotorRLPort;
+    private int mecanumMotorRRPort;
 
-    public final MecanumDrive robotDrive = new MecanumDrive(frontLeft, rearLeft, frontRight, rearRight);
+    private VictorSP frontLeft;
+    private VictorSP rearLeft;
+    private VictorSP frontRight;
+    private VictorSP rearRight;
+
+    public final MecanumDrive robotDrive;
 
     public DriveTrain()
     {
+      initalizeAllMotorControllers();
+      robotDrive = new MecanumDrive(frontLeft, rearLeft, frontRight, rearRight);
+
       robotDrive.setDeadband(0.075);
     }
+    private void initalizeAllMotorControllers()
+    {
+      setTheFrontDrivingSideWithTheBattery(true);
+      frontLeft = new VictorSP(mecanumMotorFLPort);
+      rearLeft = new VictorSP(mecanumMotorRLPort);
+      frontRight = new VictorSP(mecanumMotorFRPort);
+      rearRight = new VictorSP(mecanumMotorRRPort);
+    }
+    private void setTheFrontDrivingSideWithTheBattery(boolean flag)
+    {
+      if(flag)
+      {
+        mecanumMotorFLPort = 3;
+        mecanumMotorFRPort = 2;
+        mecanumMotorRLPort = 1;
+        mecanumMotorRRPort = 0;
+      }
+      else
+      {
+        mecanumMotorFLPort = 0;
+        mecanumMotorFRPort = 1;
+        mecanumMotorRLPort = 2;
+        mecanumMotorRRPort = 3;
+      }
+    }
+
 
     public void manualDrive(double horizontalSpeed, double verticalSpeed, double rotationSpeed) 
     {
