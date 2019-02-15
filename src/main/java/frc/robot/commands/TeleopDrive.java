@@ -39,9 +39,9 @@ public class TeleopDrive extends Command {
   }
   private void processInputs()
   {
-    horizontalSpeed = Utility.applySinTransformation(Robot.OI.joystick.getX(Hand.kLeft));
-    verticalSpeed = Utility.applySinTransformation(-Robot.OI.joystick.getY(Hand.kLeft));
-    rotation = Utility.applySinTransformation(Robot.OI.joystick.getX(Hand.kRight));
+    horizontalSpeed = Utility.transform(Robot.OI.joystick.getX(Hand.kLeft));
+    verticalSpeed = -Utility.transform(Robot.OI.joystick.getY(Hand.kLeft));
+    rotation = Utility.transform(Robot.OI.joystick.getX(Hand.kRight));
     if (isUnderRotationThreshold(rotation)) 
     {
       rotation = 0;
