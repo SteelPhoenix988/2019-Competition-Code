@@ -9,8 +9,6 @@ import frc.robot.Robot;
 //import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import frc.robot.Utility;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import java.text.DecimalFormat;
 /**
  * An example command.  You can replace me with your own command.
  */
@@ -20,7 +18,7 @@ public class ArmMovement extends Command {
   {
     requires(Robot.arm);
   }
-s
+
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
