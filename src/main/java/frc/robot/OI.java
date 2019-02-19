@@ -8,6 +8,7 @@
 package frc.robot;
 import edu.wpi.first.wpilibj.XboxController;
 
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -31,12 +32,11 @@ public class OI
   //public final Joystick joystick = new Joystick (RobotMap.controllerPort);
   
   
-  public final XboxController joystick = new XboxController(RobotMap.driveGameControllerPort);
-  
+  public final XboxController joystick = new XboxController(RobotMap.driveControllerPort);
   
   //Joystick for the Elevator Controller
   
-  public final XboxController elevatorStick = new XboxController (RobotMap.elevatorGameControllerPort);
+  public final XboxController armStick = new XboxController(RobotMap.armControllerPort);
   //// TRIGGERING COMMANDS WITH BUTTONS
   // Once you have a button, it's trivial to bind it to a button in one of
   // three ways:
@@ -51,7 +51,6 @@ public class OI
 
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
-  // button.whenReleased(new ExampleCommand());s
-
+  // button.whenReleased(new ExampleCommand());
 }
 

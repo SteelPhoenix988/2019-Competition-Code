@@ -9,10 +9,13 @@ package frc.robot;
 
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.DriveTrain;
-import frc.robot.subsystems.Elevator;
+import frc.robot.subsystems.Arm;
+import frc.robot.PowerMultiplier;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -26,7 +29,7 @@ public class Robot extends TimedRobot
   
   public static OI OI;
   public static DriveTrain driveTrain;
-  public static Elevator elevator;
+  public static Arm arm;
   Command m_autonomousCommand;
 
   /**
@@ -35,15 +38,15 @@ public class Robot extends TimedRobot
    */
   @Override
   public void robotInit() {
-    OI = new OI();
     driveTrain = new DriveTrain();
-    elevator = new Elevator();
+    arm = new Arm();
+    OI = new OI(); //OI MUST be initialized after all subsystems
     CameraServer.getInstance().startAutomaticCapture();
   }
 
   /**
    * This function is called every robot packet,
-   *  no matter the mode. Use this for
+   * no matter the mode. Use this for
    * items like diagnostics that you want ran during disabled, autonomous,
    * teleoperated and test.
    *
@@ -52,7 +55,9 @@ public class Robot extends TimedRobot
    * and SmartDashboard integrated updating.
    */
   @Override
-  public void robotPeriodic() {
+  public void robotPeriodic() 
+  {
+    PowerMultiplier.display();
   }
 
   /**
@@ -95,7 +100,7 @@ public class Robot extends TimedRobot
 
   @Override
   public void teleopInit() {
-    // This makes sure that the autonomous stops running when
+    // This makes sure that the a utonomous stops running when
     // teleop starts running. If you want the autonomous to
     // continue until interrupted by another command, remove
     // this line or comment it out.
@@ -118,10 +123,5 @@ public class Robot extends TimedRobot
   @Override
   public void testPeriodic() 
   {
-
-      if (Robot.OI.joystick.getAButtonPressed()){
-        Robot.driveTrain.timedDrive(1, .25, .25);
-      }
-      
   }
 }

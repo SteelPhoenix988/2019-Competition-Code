@@ -2,7 +2,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
-import frc.robot.commands.TeleopDrive;
+import frc.robot.commands.drive.TeleopDrive;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.VictorSP;
 
@@ -25,11 +25,11 @@ public class DriveTrain extends Subsystem
       initalizeAllMotorControllers();
       robotDrive = new MecanumDrive(frontLeft, rearLeft, frontRight, rearRight);
 
-      robotDrive.setDeadband(0.075);
+      robotDrive.setDeadband(0.05);
     }
     private void initalizeAllMotorControllers()
     {
-      setTheFrontDrivingSideWithTheBattery(true);
+      setTheFrontDrivingSideWithTheBattery(false);
       frontLeft = new VictorSP(mecanumMotorFLPort);
       rearLeft = new VictorSP(mecanumMotorRLPort);
       frontRight = new VictorSP(mecanumMotorFRPort);
