@@ -27,9 +27,9 @@ import frc.robot.PowerMultiplier;
 public class Robot extends TimedRobot 
 {
   
-  public static OI OI;
   public static DriveTrain driveTrain;
   public static Arm arm;
+  public static OI OI;
   Command m_autonomousCommand;
 
   /**

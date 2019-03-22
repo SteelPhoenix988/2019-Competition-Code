@@ -1,7 +1,4 @@
-//Uses the method(s?) from Elevator.java to operate the elevator
-//Not sure how to schedule to run, but will function properly once it is scheduled
-//Currently using the Joystick's X axis to give motion and thereby move the Elevator
-//-Alex
+
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -26,7 +23,6 @@ public class ArmMovement extends Command {
   }
 
   private double motion;
-  private boolean stop;
   
   // Called repeatedly when this Command is scheduled to run
   @Override
