@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Arm;
 import frc.robot.PowerMultiplier;
+import com.analog.adis16470.frc.ADIS16470_IMU;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -28,7 +29,8 @@ public class Robot extends TimedRobot
   public static DriveTrain driveTrain;
   public static Arm arm;
   public static OI OI;
-  public Command m_autonomousCommand;
+  public static Command m_autonomousCommand;
+  public static ADIS16470_IMU imu;
 
   /**
    * This function is run when the robot is first started up and should be used
@@ -40,6 +42,7 @@ public class Robot extends TimedRobot
     arm = new Arm();
     OI = new OI(); //OI MUST be initialized after all subsystems
     CameraServer.getInstance().startAutomaticCapture();
+    imu = new ADIS16470_IMU();
   }
 
   /**
@@ -123,5 +126,6 @@ public class Robot extends TimedRobot
   @Override
   public void testPeriodic() 
   {
+    System.out.println(imu.getAngleX());
   }
 }

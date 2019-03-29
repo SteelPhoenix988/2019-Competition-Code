@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import frc.robot.commands.TeleopDrive;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.VictorSP;
+import frc.robot.Robot;
 
 public class DriveTrain extends Subsystem 
 {
@@ -56,7 +57,13 @@ public class DriveTrain extends Subsystem
 
     public void manualDrive(double horizontalSpeed, double verticalSpeed, double rotationSpeed) 
     {
-      robotDrive.driveCartesian(horizontalSpeed, verticalSpeed, rotationSpeed);
+      robotDrive.driveCartesian
+      (
+        horizontalSpeed, 
+        verticalSpeed, 
+        rotationSpeed
+        // Robot.imu.getAngleX()
+      );
     }
     
     //Lol be careful when using this. The 0 power doesn't break it as the motors will just let the axle spin
