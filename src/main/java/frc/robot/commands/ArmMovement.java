@@ -22,43 +22,16 @@ public class ArmMovement extends Command {
   
   }
 
+  private double powerMultiplier = 0.6;
   private double motion;
   
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+  
+    motion = powerMultiplier*Utility.applySinTransformation(Robot.OI.armStick.getY(Hand.kLeft));
     
-    motion = Utility.applySinTransformation(Robot.OI.armStick.getY(Hand.kLeft));
-    
-    boolean stopped = (Robot.OI.armStick.getBButton());
-    //This is no longer just a brake function
-    //This will cause the arm to hold at a specific position
-    if (stopped){
-        motion = .05;
-    }
-
     Robot.arm.moveArm(motion);
-    // SmartDashboard.putString("Arm Motion", new DecimalFormat("#.##").format(motion));
-    
-    /* if (Track > 0 && AButton != true && XButton != true){
-      Robot.arm.moveArm(-1, stop);
-    }else if(Track == 0 && AButton != true && XButton != true){
-      Robot.arm.moveArm(0, stop);
-    }else if(Track < 1 && AButton != true && XButton != true){
-      Robot.arm.moveArm(1, stop);
-    }else if(AButton = true){
-      do {
-        Robot.arm.moveArm(1, stop);
-        Track = Robot.armEncoder.getArmTrack();
-      }while(Track<5);
-    }else if(XButton = true){
-      do {
-        Robot.arm.moveArm(1, stop);
-        Track = Robot.armEncoder.getArmTrack();
-      }while(Track<7);
-    }
-    */
-   // Robot.arm.moveArm(motion, stop);
   }
  
   // Make this return true when this Command no longer needs to run execute()

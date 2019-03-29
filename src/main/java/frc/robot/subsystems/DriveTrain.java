@@ -29,7 +29,7 @@ public class DriveTrain extends Subsystem
     }
     private void initalizeAllMotorControllers()
     {
-      setTheFrontDrivingSideWithTheBattery(false);
+      setTheFrontDrivingSideWithTheBattery(true);
       frontLeft = new VictorSP(mecanumMotorFLPort);
       rearLeft = new VictorSP(mecanumMotorRLPort);
       frontRight = new VictorSP(mecanumMotorFRPort);

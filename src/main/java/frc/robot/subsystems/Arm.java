@@ -14,7 +14,8 @@ import edu.wpi.first.wpilibj.PWMVictorSPX;
 
 public class Arm extends Subsystem {
     public final PWMVictorSPX arm = new PWMVictorSPX(RobotMap.armMotorPort);
-   
+    
+    
     public void moveArm(double motion)
     {
         arm.set(motion);

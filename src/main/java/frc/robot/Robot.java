@@ -9,13 +9,11 @@ package frc.robot;
 
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Arm;
 import frc.robot.PowerMultiplier;
-
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -30,7 +28,7 @@ public class Robot extends TimedRobot
   public static DriveTrain driveTrain;
   public static Arm arm;
   public static OI OI;
-  Command m_autonomousCommand;
+  public Command m_autonomousCommand;
 
   /**
    * This function is run when the robot is first started up and should be used
@@ -58,6 +56,7 @@ public class Robot extends TimedRobot
   public void robotPeriodic() 
   {
     PowerMultiplier.display();
+
   }
 
   /**
@@ -96,6 +95,7 @@ public class Robot extends TimedRobot
    */
   @Override
   public void autonomousPeriodic() {
+    Scheduler.getInstance().run();
   }
 
   @Override

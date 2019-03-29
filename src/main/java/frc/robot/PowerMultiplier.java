@@ -17,12 +17,15 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
  */
 public class PowerMultiplier
 {
-    private static double multiplier = 0.7;
+    private static double min = 0.1;    
+    private static double max = 0.9;
+    private static double multiplier = max;
+
 
     public static void display()
     {
         handleUpdating();
-        SmartDashboard.putString("Power Multiplier", new DecimalFormat("#.##").format(multiplier));//DecimalFormat to 2 places
+        SmartDashboard.putString("Power Multiplier", new DecimalFormat("#.##").format(multiplier));
     }
     public static void handleUpdating()
     {
@@ -30,11 +33,11 @@ public class PowerMultiplier
     }
     public static void decrementOrIncrementMutiplier()
     {
-        if( multiplier > 0.1  && Robot.OI.joystick.getBumperPressed(Hand.kLeft))
+        if(multiplier > min  && Robot.OI.joystick.getBumperPressed(Hand.kLeft))
         {
             multiplier -= 0.1;
         }
-        if( multiplier < 0.7 && Robot.OI.joystick.getBumperPressed(Hand.kRight))
+        if(multiplier < max && Robot.OI.joystick.getBumperPressed(Hand.kRight))
         {
             multiplier += 0.1;
         }
